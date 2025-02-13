@@ -5,7 +5,8 @@ export default function HomePage() {
     <section>
       <h1>Welcome to My Prototype App</h1>
       <p>Next.js 13 (App Router) を使ったプロトタイプです。</p>
-       <p>ようこそ</p>
+      <p>ようこそ</p>
+      <p>こんにちは</p>
       <p>上部のナビゲーションから各ページに移動できます。</p>
     </section>
   );

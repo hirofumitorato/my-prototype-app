@@ -1,19 +1,20 @@
-// app/todos/[id]/page.tsx
+import Link from 'next/link';
+
 interface TodoDetailPageProps {
-  params: { id: string }; // URLパラメータの型
+  params: Promise<{ id: string }>; // `Promise` の型を明示
 }
 
-// Server Component
-// params.id から動的に表示内容を切り替えられる。
-export default function TodoDetailPage({ params }: TodoDetailPageProps) {
-  const { id } = params;
+// `async` を追加して `params` を `await` で解決する
+export default async function TodoDetailPage({ params }: TodoDetailPageProps) {
+  const resolvedParams = await params; // `params` を解決
+  const { id } = resolvedParams;
 
   return (
     <section>
       <h2>TODO詳細</h2>
       <p>TODO ID: <b>{id}</b></p>
       <p>ここで詳細情報を表示する想定です。サーバーやDBからデータを取得できます。</p>
-      <a href="/todos">← 戻る</a>
+      <Link href="/todos">← 戻る</Link>
     </section>
   );
 }
